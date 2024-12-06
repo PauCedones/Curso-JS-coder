@@ -85,7 +85,7 @@ i= i+2;
 } */
 
 //9
-let numero = 0;
+/* let numero = 0;
 
 while (numero >= 0){
     numero = parseInt(prompt("Ingresa un número (introduce un número negativo para salir):"));
@@ -95,7 +95,20 @@ if (numero >0){
     console.log("saliste del bucle")
 }
 
-}
+} */
+
+//10
+/* let texto = "hola";
+let cantidad = 0;
+
+while (texto == "hola") {
+  texto = prompt("deci hola o chau").toLocaleLowerCase();
+  if (texto == "hola") {
+    cantidad++;
+  } else {
+    console.log("usted dijo la palabra 'hola' " + cantidad + " de veces");
+  }
+} */
 
 /*
 #### Do...While Loop
@@ -105,7 +118,58 @@ if (numero >0){
 13. Imprimir los múltiplos de 3 del 1 al 30 usando un bucle `do...while`.
 14. Crear un bucle `do...while` que pida al usuario números hasta que introduzca el número 0.
 15. Contar el número de intentos hasta que el usuario adivine un número secreto usando un bucle `do...while`.
+*/
 
+//11
+
+/* let i = 0;
+do {
+  i++;
+  console.log(i);
+} while (i < 10);
+ */
+
+//12
+/* let numero = 0;
+let sumar = 0;
+
+do {
+  numero++;
+  sumar = sumar + numero;
+  console.log(sumar);
+} while (numero < 30);
+ */
+
+//13
+/* let numero = 0;
+do {
+  numero++;
+  if (numero % 3 === 0) {
+    console.log("El numero " + numero + " multiplo de 3");
+  }
+} while (numero < 30); */
+
+//14
+/* let pedir;
+do {
+  pedir = parseInt(prompt("elegi un numero. Salis con 0"));
+} while (pedir !== 0);
+ */
+
+//15
+let palabraSecreta = "secreto";
+let palabra = "";
+let sumar = 0;
+
+do {
+  palabra = prompt("Deci una palabra");
+  if (palabra !== palabraSecreta) {
+    sumar++;
+  }
+} while (palabra !== palabraSecreta);
+console.log("Se intento salir " + sumar + " veces");
+
+/*
 ### Sentencias Break y Continue
 
 #### Break
