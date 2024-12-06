@@ -59,13 +59,43 @@ for( let i = 0; i<listaCompras.length ; i++){
 */
 
 //6
-let i = 1;
+/* let i = 1;
 
 while ( i <=10){
     console.log (i)
     i++;
+} */
+
+//7
+
+/* let i = 1;
+let sumar =0;
+while (i <=50){
+  sumar= i + sumar;
+    i++
+    console.log (sumar)
+} */
+
+//8
+/* let i= 1;
+
+while (i<=20){
+console.log(i);
+i= i+2;
+} */
+
+//9
+let numero = 0;
+
+while (numero >= 0){
+    numero = parseInt(prompt("Ingresa un número (introduce un número negativo para salir):"));
+if (numero >0){
+    console.log("seguis en el bucle")
+}else{
+    console.log("saliste del bucle")
 }
 
+}
 
 /*
 #### Do...While Loop
