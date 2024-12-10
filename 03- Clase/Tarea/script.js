@@ -157,7 +157,7 @@ do {
  */
 
 //15
-let palabraSecreta = "secreto";
+/* let palabraSecreta = "secreto";
 let palabra = "";
 let sumar = 0;
 
@@ -167,7 +167,7 @@ do {
     sumar++;
   }
 } while (palabra !== palabraSecreta);
-console.log("Se intento salir " + sumar + " veces");
+console.log("Se intento salir " + sumar + " veces"); */
 
 /*
 ### Sentencias Break y Continue
@@ -179,7 +179,67 @@ console.log("Se intento salir " + sumar + " veces");
 18. Crear un bucle `do...while` que pida números al usuario y salga cuando el usuario introduzca un número negativo.
 19. Imprimir los números del 1 al 100, pero detenerse si el número es divisible por 37.
 20. Usar un bucle `for` para imprimir los números del 1 al 20, pero detenerse si se encuentra el número 13.
+*/
 
+//16
+//forma convencional
+/* 
+const numerosArray = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+for (let i = 0; i < numerosArray.length; i++) {
+  if (numerosArray[i] > 50) {
+    console.log("el primer numero mayor a 50 es " + numerosArray[i]);
+    break;
+  }
+} */
+//forma con FOR OF
+/* for (let numero of numerosArray) {
+  if (numero > 50) {
+    console.log("FOR OF: el primer numero mayor a 50 es " + numero);
+    break;
+  }
+} */
+
+//17 Usar un bucle `while` para encontrar el primer número impar mayor a 10 y salir del bucle.
+/* let i = 11;
+
+while (i <= 20) {
+  if (i % 2 !== 0) {
+    console.log("El primer numero impar despues de 10 es " + i);
+    break;
+  }
+  i++;
+} */
+
+//18 Crear un bucle `do...while` que pida números al usuario y salga cuando el usuario introduzca un número negativo.
+/* let pedir;
+do {
+  pedir = parseInt(prompt("elegi un numero"));
+} while (pedir >= 0);
+ */
+
+//19. Imprimir los números del 1 al 100, pero detenerse si el número es divisible por 37.
+
+/* let numeros = 1;
+
+while (numeros < 100) {
+  if (numeros % 37 === 0) {
+    console.log("El numero " + numeros + " es divisible por 37");
+    break;
+  }
+  numeros++;
+} */
+
+//20 Usar un bucle `for` para imprimir los números del 1 al 20, pero detenerse si se encuentra el número 13.
+
+/* for (let i = 0; i <= 20; i++) {
+  if (i === 13) {
+    console.log("Llegaste al numero 13, se detiene el bucle");
+    break;
+  }
+  console.log(i);
+} */
+
+/*
 #### Continue
 
 21. Usar un bucle `for` para imprimir los números del 1 al 20, omitiendo los múltiplos de 5.
