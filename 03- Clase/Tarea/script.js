@@ -247,7 +247,17 @@ while (numeros < 100) {
 23. Crear un bucle `do...while` que pida al usuario números y omita los números pares.
 24. Usar un bucle `for` para imprimir los números del 1 al 10, omitiendo el número 7.
 25. Crear un bucle `while` que imprima los números del 1 al 20, omitiendo los números impares.
+*/
 
+//21 Usar un bucle `for` para imprimir los números del 1 al 20, omitiendo los múltiplos de 5.
+
+for (let i = 0; i <= 20; i++) {
+  if (i % 5 !== 0) {
+    console.log("El numero ");
+  }
+}
+
+/*
 ### Estructura Switch
 
 26. Pedir al usuario un número del 1 al 7 e imprimir el día de la semana correspondiente.
