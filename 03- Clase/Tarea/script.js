@@ -251,21 +251,126 @@ while (numeros < 100) {
 
 //21 Usar un bucle `for` para imprimir los números del 1 al 20, omitiendo los múltiplos de 5.
 
-for (let i = 0; i <= 20; i++) {
+/* for (let i = 0; i <= 20; i++) {
   if (i % 5 !== 0) {
-    console.log("El numero ");
+    console.log("El numero " + i);
   }
-}
+} */
 
 /*
 ### Estructura Switch
 
 26. Pedir al usuario un número del 1 al 7 e imprimir el día de la semana correspondiente.
-27. Pedir al usuario una calificación (A, B, C, D, F) e imprimir un mensaje adecuado.
-28. Crear un menú simple usando `switch` que permita al usuario elegir una opción entre 1 y 3 e imprimir un mensaje adecuado.
-29. Pedir al usuario un mes (1-12) e imprimir la estación correspondiente.
-30. Pedir al usuario que introduzca un carácter y determinar si es una vocal o una consonante.
+*/
 
+/* let pedirNumero;
+
+do {
+  pedirNumero = parseInt(prompt("elegi un numero del 1 al 7"));
+  if (pedirNumero >= 1 && pedirNumero <= 7) {
+    switch (pedirNumero) {
+      case 1:
+        console.log("Lunes");
+        break;
+      case 2:
+        console.log("Martes");
+        break;
+      case 3:
+        console.log("Miercoles");
+        break;
+      case 4:
+        console.log("Jueves");
+        break;
+      case 5:
+        console.log("Viernes");
+        break;
+      case 6:
+        console.log("Sábado");
+        break;
+      case 7:
+        console.log("Domingo");
+        break;
+    }
+    break;
+  } else {
+    console.log("Número inválido. Por favor, ingresá un número del 1 al 7.");
+  }
+} while (true); */
+
+/*
+27. Pedir al usuario una calificación (A, B, C, D, F) e imprimir un mensaje adecuado.
+*/
+/* let calificacion;
+
+do {
+  calificacion = prompt(
+    "Cual es la calificacion del alumno? (A-B-C-D-F)"
+  ).toUpperCase();
+  if (["A", "B", "C", "D", "F"].includes(calificacion)) {
+    switch (calificacion) {
+      case "A":
+        console.log("Excelente");
+        break;
+      case "B":
+        console.log("Muy Bien");
+        break;
+      case "C":
+        console.log("Aprobado");
+        break;
+      case "D":
+        console.log("Condicional");
+        break;
+      case "F":
+        console.log("Desaprobado :(");
+        break;
+    }
+    break;
+  } else {
+    alert("No seleccionó una letra valida. Por favor seleccionar A-B-C-D-F");
+  }
+} while (true); */
+
+/*
+28. Crear un menú simple usando `switch` que permita al usuario elegir una opción entre 1 y 3 e imprimir un mensaje adecuado.
+*/
+/* let menuSimple;
+
+do {
+  menuSimple = parseInt(prompt("Elegi tu menu 1-2-3"));
+  if (menuSimple >= 1 && menuSimple <= 3) {
+    switch (menuSimple) {
+      case 1:
+        console.log("Eligio el pollo con papas, excelente eleccion");
+        break;
+      case 2:
+        console.log("Eligió el pure con milanesas, muy buena eleccion");
+        break;
+      case 3:
+        console.log("Eligio el guiso de mondongo, esta seguro de su eleccion?");
+        break;
+    }
+    break;
+  } else {
+    alert("Por favor elija uno de los menues del 1 al 3");
+  }
+} while (true); */
+
+/*
+30. Pedir al usuario que introduzca un carácter y determinar si es una vocal o una consonante.
+*/
+
+let letra = prompt("elegi una letra").toUpperCase();
+if (letra.length === 1 && letra.match(/[A-Z]/))
+  if (["A", "E", "I", "O", "U"].includes(letra)) {
+    alert("Tu letra " + letra + " es una vocal");
+  } else {
+    alert("Tu letra " + letra + " es una consonante");
+  }
+else {
+  alert("Por favor, ingresá **solo una letra**.");
+}
+
+/*
 ### Combinando Conceptos
 
 31. Pedir al usuario 5 números y calcular su suma usando un bucle `for` y `prompt`.
