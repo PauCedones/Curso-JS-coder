@@ -359,7 +359,7 @@ do {
 30. Pedir al usuario que introduzca un carácter y determinar si es una vocal o una consonante.
 */
 
-let letra = prompt("elegi una letra").toUpperCase();
+/* let letra = prompt("elegi una letra").toUpperCase();
 if (letra.length === 1 && letra.match(/[A-Z]/))
   if (["A", "E", "I", "O", "U"].includes(letra)) {
     alert("Tu letra " + letra + " es una vocal");
@@ -368,29 +368,205 @@ if (letra.length === 1 && letra.match(/[A-Z]/))
   }
 else {
   alert("Por favor, ingresá **solo una letra**.");
-}
+} */
 
 /*
 ### Combinando Conceptos
 
 31. Pedir al usuario 5 números y calcular su suma usando un bucle `for` y `prompt`.
-32. Crear un bucle `while` que pida al usuario una palabra y termine cuando el usuario introduzca "salir".
-33. Crear un bucle `for` que imprima los números del 1 al 50, pero salte los múltiplos de 4 usando `continue`.
-34. Crear un bucle `while` que pida al usuario números y termine si el número introducido es mayor a 100.
-35. Pedir al usuario un número del 1 al 12 y usar `switch` para imprimir el nombre del mes correspondiente.
+*/
 
+/* let number;
+let addNumber=0;
+
+for ( let i=0; i <5 ; i++){
+  number = parseInt(prompt("Choose a number"));
+  addNumber = number + addNumber
+}
+console.log("The add of all the prompts are " + addNumber ); */
+
+/*
+32. Crear un bucle `while` que pida al usuario una palabra y termine cuando el usuario introduzca "salir".
+*/
+/* let word ;
+
+let password ="exit"
+
+while (word != password){
+  word = prompt("Write a word");
+console.log("Su palabra es " + word);
+}
+console.log("Salio de la ejecucion") */
+
+/*
+33. Crear un bucle `for` que imprima los números del 1 al 50, pero salte los múltiplos de 4 usando `continue`.
+*/
+/* for (let i =1; i<=50; i++){
+  if (i %4 ===0){
+    console.log(i+ " es numero multiplo de 4")
+  }else{
+    console.log(i)
+  }
+} */
+
+
+/*
+34. Crear un bucle `while` que pida al usuario números y termine si el número introducido es mayor a 100.
+*/
+/* i=0;
+while ( i != 100){
+  i = parseInt(prompt("deci un numero"))
+  if(i != 100){
+    console.log(i + " No es la respuesta correcta")
+
+  }else{
+    console.log (i+ " Es la respuesta correcta y salio del bucle")
+
+  }
+} */
+
+
+/*
+35. Pedir al usuario un número del 1 al 12 y usar `switch` para imprimir el nombre del mes correspondiente.
+*/
+/* 
+let number = parseInt(prompt("Choose a number from 1 to 12"));
+
+while (number < 1 || number > 12 || isNaN(number)) {  // Mientras el número no esté entre 1 y 12
+  number = parseInt(prompt("Choose a number from 1 to 12"));
+  console.log("This is not a possible number. Choose from 1 to 12");
+}
+switch(number) {
+  case 1:
+    console.log("January");
+    break;
+  case 2:
+    console.log("February");
+    break;
+  case 3:
+    console.log("March");
+    break;
+  case 4:
+    console.log("April");
+    break;
+  case 5:
+    console.log("May");
+    break;
+  case 6:
+    console.log("June");
+    break;
+  case 7:
+    console.log("July");
+    break;
+  case 8:
+    console.log("August");
+    break;
+  case 9:
+    console.log("September");
+    break;
+  case 10:
+    console.log("October");
+    break;
+  case 11:
+    console.log("November");
+    break;
+  case 12:
+    console.log("December");
+    break;
+}
+ */
+
+
+
+
+/*
 ### Ejercicios Adicionales
 
 36. Crear un bucle `for` que imprima los números del 1 al 10 en orden inverso.
+*/
+/* for( let i = 10; i >=1; i--){
+  console.log(i)
+} */
+
+
+/*
 37. Usar un bucle `while` para imprimir los números del 10 al 1.
+*/
+/* let i= 11;
+while(i >1){
+  i--;
+console.log (i)
+} */
+
+/*
 38. Crear un bucle `do...while` que imprima los números del 5 al 15.
+*/
+/* i=4
+do {
+i++
+console.log (i)
+}while (i<15) */
+
+
+/*
 39. Usar un bucle `for` para imprimir los elementos de un array en orden inverso.
+*/
+/* const miArray=["banana","manzana","pera"]
+
+for(let i= miArray.length -1; i>miArray.length; i--){
+  console.log(miArray[i])
+} */
+
+
+/*
 40. Crear un bucle `while` que imprima los números del 1 al 100, pero termine si el número es divisible por 25.
+*/
+/* let i=1;
+while(i<100){
+  if(i%25===0){
+  
+    console.log(i + " es un numero divisible por 25")
+    break
+  }else{
+    i++;
+    console.log(i)
+  }
+} */
+
+
+/*
 
 ### Combinando Bucles y Switch
 
 41. Crear un bucle `for` que pida al usuario un número del 1 al 5 y use `switch` para imprimir un mensaje.
+*/
+
+/* for( let i =0; i<1; i++){
+  let numero;
+  do {
+    numero = parseInt(prompt("Elige un número del 1 al 5:"), 10);
+  } while (isNaN(numero) || numero < 1 || numero > 5);
+
+  switch(numero){
+  case 1: console.log("entraste al caso 1")
+  break;
+  case 2: console.log("entraste al caso 2")
+  break;
+  case 3: console.log("entraste al caso 3")
+  break
+  case 4: console.log("entraste al caso 4")
+  break
+  case 5: console.log("entraste al caso 5")
+  break;
+}
+} */
+
+/*
 42. Crear un bucle `while` que pida al usuario un número del 1 al 7 y use `switch` para imprimir el día de la semana.
+*/
+
+
+/*
 43. Usar un bucle `do...while` para pedir al usuario una letra y usar `switch` para determinar si es vocal o consonante.
 44. Crear un bucle `for` que imprima los números del 1 al 20 y use `switch` para imprimir un mensaje si el número es divisible por 4.
 45. Crear un bucle `while` que pida al usuario una calificación (A, B, C, D, F) y use `switch` para imprimir un mensaje adecuado.
