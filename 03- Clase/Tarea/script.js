@@ -565,12 +565,92 @@ while(i<100){
 42. Crear un bucle `while` que pida al usuario un número del 1 al 7 y use `switch` para imprimir el día de la semana.
 */
 
+/* let pedirNumero =parseInt(prompt("Elegi un numero del 1 al 7"))
+while ( pedirNumero > 7 || pedirNumero<=0 ){
+pedirNumero =parseInt(prompt("Elegi un numero del 1 al 7"))
+
+}
+switch (pedirNumero){
+  case 1: console.log("entraste al caso 1")
+  break;
+  case 2: alert("entraste al caso 2")
+  break;
+  case 3: alert("entraste al caso 3")
+  break
+  case 4: alert("entraste al caso 4")
+  break
+  case 5: alert("entraste al caso 5")
+  break;
+  case 6: alert("entraste al caso 6")
+  break;
+  case 7: alert("entraste al caso 7")
+  break;
+} */
 
 /*
 43. Usar un bucle `do...while` para pedir al usuario una letra y usar `switch` para determinar si es vocal o consonante.
-44. Crear un bucle `for` que imprima los números del 1 al 20 y use `switch` para imprimir un mensaje si el número es divisible por 4.
-45. Crear un bucle `while` que pida al usuario una calificación (A, B, C, D, F) y use `switch` para imprimir un mensaje adecuado.
+*/
 
+/* let letra;
+do{
+  letra = prompt("Elegi una letra del abecedario")
+}
+while(!isNaN(letra));
+
+switch (letra) {
+  case "a":
+  case "e":
+  case "i":
+  case "o":
+  case "u":
+      alert("Es una vocal");
+      break;
+
+  default:
+      alert("Es una consonante o un carácter inválido");
+      break;
+} */
+/*
+44. Crear un bucle `for` que imprima los números del 1 al 20 y use `switch` para imprimir un mensaje si el número es divisible por 4.
+*/
+
+/* 
+for (let numero = 1; numero <=20; numero ++){
+  switch (numero % 4){
+    case 0 :
+      console.log(numero + " es divisible por 4")
+      break;
+    default:
+      console.log( numero + " no es divisible por 4")
+      break;
+  }
+} */
+
+
+
+/*
+45. Crear un bucle `while` que pida al usuario una calificación (A, B, C, D, F) y use `switch` para imprimir un mensaje adecuado.
+*/
+
+let calificacion = prompt("Introduci una calificacion")
+while (calificacion !== "A" ||calificacion !== "B" ||calificacion !== "C" ||calificacion !== "D" ||calificacion !== "E" ){
+  alert ("introduci una calificacion existente while")
+}
+switch (calificacion){
+  case "A": console.log("Excelente")
+  break;
+  case "B": alert("Muy bien")
+  break;
+  case "C": alert("Bien")
+  break
+  case "D": alert("Regular")
+  break
+  case "F": alert("Desaprobaste")
+  break;
+  default:
+    alert("Debes introducir una calificacion existente")
+}
+/*
 ### Ejercicios de Aplicación
 
 46. Crear un bucle `for` que imprima los números del 1 al 100, pero use `continue` para saltar los números múltiplos de 10.

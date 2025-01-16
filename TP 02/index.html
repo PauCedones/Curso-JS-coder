@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Presupuesto de Viaje</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Simulador de Presupuesto de Viaje</h1>
+    </header>
+
+    <main>
+        <form id="formularioViaje" class="formulario">
+            <div class="campo">
+                <label for="distancia">Distancia (km):</label>
+                <input type="number" id="distancia" required>
+            </div>
+
+            <div class="campo">
+                <label for="precioCombustible">Precio del Combustible (por litro):</label>
+                <input type="number" step="0.01" id="precioCombustible" required>
+            </div>
+
+            <div class="campo">
+                <label for="consumoPorKm">Consumo del Vehículo (km/litro):</label>
+                <input type="number" step="0.01" id="consumoPorKm" required>
+            </div>
+
+            <div class="campo">
+                <label for="dias">Días del Viaje:</label>
+                <input type="number" id="dias" required>
+            </div>
+
+            <div class="campo">
+                <label for="costoHospedaje">Costo Diario del Hospedaje ($):</label>
+                <input type="number" step="0.01" id="costoHospedaje" required>
+            </div>
+
+            <div class="campo">
+                <label for="costoComida">Costo Diario de Comida ($):</label>
+                <input type="number" step="0.01" id="costoComida" required>
+            </div>
+
+            <button type="submit" class="boton">Calcular Presupuesto</button>
+        </form>
+
+        <section id="resultado" class="resultado"></section>
+    </main>
+
+    <footer>
+        <p>Alumna: Paula Cedones | JS Flex CoderHouse | Comisión: 65355</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
