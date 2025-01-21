@@ -632,10 +632,17 @@ for (let numero = 1; numero <=20; numero ++){
 45. Crear un bucle `while` que pida al usuario una calificación (A, B, C, D, F) y use `switch` para imprimir un mensaje adecuado.
 */
 
-let calificacion = prompt("Introduci una calificacion")
-while (calificacion !== "A" ||calificacion !== "B" ||calificacion !== "C" ||calificacion !== "D" ||calificacion !== "E" ){
-  alert ("introduci una calificacion existente while")
+/* let calificacion;
+
+while (true) {
+  calificacion = prompt("Introduce una calificación (A, B, C, D, F):").toUpperCase(); // Aseguramos que la entrada esté en mayúsculas
+  if (["A", "B", "C", "D", "F"].includes(calificacion)) {
+    break; // Salimos del bucle si la calificación es válida
+  }
+  alert("Por favor, introduce una calificación válida (A, B, C, D, F).");
 }
+
+
 switch (calificacion){
   case "A": console.log("Excelente")
   break;
@@ -649,12 +656,25 @@ switch (calificacion){
   break;
   default:
     alert("Debes introducir una calificacion existente")
-}
+} */
 /*
 ### Ejercicios de Aplicación
 
 46. Crear un bucle `for` que imprima los números del 1 al 100, pero use `continue` para saltar los números múltiplos de 10.
+*/
+/* for ( let i = 1 ; i<=100 ; i++){
+  if(i%10===0){
+    continue;
+  }
+console.log(i)
+} */
+
+
+/*
 47. Crear un bucle `while` que pida al usuario números y termine si introduce un número primo.
+*/
+
+/*
 48. Crear un bucle `do...while` que pida al usuario su edad y use `switch` para imprimir un mensaje según la década.
 49. Usar un bucle `for` para imprimir los números del 1 al 20, pero termine si el número es un cuadrado perfecto usando `break`.
 50. Crear un bucle `while` que pida al usuario un día de la semana (1-7) y use `switch` para imprimir un mensaje, terminando si el usuario introduce un número mayor a 7. */
