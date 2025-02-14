@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Viaje</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body class="bg-light">
+    <header class="text-center p-4 bg-primary text-white">
+        <h1 class="fw-bold">🌍 Planifica tu Aventura ✈️</h1>
+        <p id="fechaHoy" class="text-light"></p>
+        <div class="d-flex justify-content-center gap-4">
+            <p class="fw-bold bg-warning p-2 rounded"> <span id="dolarHoy"></span></p>
+            <p class="fw-bold bg-info p-2 rounded"><span id="climaHoy"></span></p>
+        </div>
+    </header>
+    <main class="container mt-4">
+        <div class="card p-4 shadow-lg bg-white border-primary">
+            <h2 class="text-center text-primary">Calcula tu Presupuesto</h2>
+            <form id="formularioViaje">
+                <div class="mb-3">
+                    <label for="ciudad" class="form-label">Destino</label>
+                    <input type="text" id="ciudad" class="form-control" placeholder="Ej: Buenos Aires" required>
+                </div>
+                <div class="mb-3">
+                    <label for="distancia" class="form-label">Distancia (km)</label>
+                    <input type="number" id="distancia" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="consumoPorKm" class="form-label">Consumo de combustible (km/l)</label>
+                    <input type="number" id="consumoPorKm" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="dias" class="form-label">Días de viaje</label>
+                    <input type="number" id="dias" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="costoHospedaje" class="form-label">Costo diario de hospedaje (ARS)</label>
+                    <input type="number" id="costoHospedaje" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="costoComida" class="form-label">Costo diario de comida (ARS)</label>
+                    <input type="number" id="costoComida" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-success w-100">🧳 Calcular Presupuesto</button>
+            </form>
+            <div id="resultado" class="mt-4 text-center"></div>
+        </div>
+        <div class="mt-5" id="historialContainer" style="display: none;">
+            <h3 class="text-center text-primary">📜 Historial de Presupuestos</h3>
+            <ul id="historialPresupuestos" class="list-group"></ul>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
