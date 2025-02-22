@@ -1,101 +1,78 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => inicializarApp());
+
+const actualizarElemento = (id, contenido) => document.getElementById(id).innerHTML = contenido;
+
+const inicializarApp = () => {
     actualizarFecha();
-    obtenerDolarHoy();
-    obtenerClima("Buenos Aires");
+    obtenerDatosIniciales();
     document.getElementById("formularioViaje").addEventListener("submit", calcularPresupuesto);
     cargarHistorialDesdeLocalStorage();
-});
+};
 
-function actualizarFecha() {
-    const fechaHoy = new Date().toLocaleDateString("es-ES", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    document.getElementById("fechaHoy").textContent = fechaHoy;
-}
+const actualizarFecha = () => actualizarElemento("fechaHoy", new Date().toLocaleDateString("es-ES", {
+    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+}));
 
-async function obtenerDolarHoy() {
+const obtenerDatosIniciales = async () => await Promise.all([obtenerDolarHoy(), obtenerClima("Buenos Aires")]);
+
+const obtenerDolarHoy = async () => {
     try {
         const respuesta = await fetch("https://dolarapi.com/v1/dolares/blue");
-        if (!respuesta.ok) throw new Error("Error al obtener datos");
-        const data = await respuesta.json();
-        document.getElementById("dolarHoy").textContent = `Dólar: $${data.venta.toFixed(2)} ARS`;
-    } catch (error) {
-        document.getElementById("dolarHoy").textContent = "Dólar: No disponible";
+        if (!respuesta.ok) throw new Error();
+        const { venta } = await respuesta.json();
+        actualizarElemento("dolarHoy", `Dólar: $${venta.toFixed(2)} ARS`);
+    } catch {
+        actualizarElemento("dolarHoy", "Dólar: No disponible");
     }
-}
+};
 
-async function obtenerClima(ciudad) {
+const obtenerClima = async (ciudad) => {
     const apiKey = "7299ac91c0a179ab932f93d120fd561b";
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric&lang=es`;
 
     try {
         const respuesta = await fetch(url);
-        if (!respuesta.ok) throw new Error("Error al obtener el clima");
-        const data = await respuesta.json();
-        document.getElementById("climaHoy").textContent = `Buenos Aires: ${data.weather[0].description}, ${data.main.temp}°C`;
-    } catch (error) {
-        document.getElementById("climaHoy").textContent = "Clima: No disponible";
+        if (!respuesta.ok) throw new Error();
+        const { weather, main } = await respuesta.json();
+        actualizarElemento("climaHoy", `${ciudad}: ${weather[0].description}, ${main.temp}°C`);
+    } catch {
+        actualizarElemento("climaHoy", "Clima: No disponible");
     }
-}
+};
 
-function calcularPresupuesto(event) {
+const calcularPresupuesto = (event) => {
     event.preventDefault();
     
     const ciudad = document.getElementById("ciudad").value.trim();
-    const distancia = document.getElementById("distancia").value.trim();
-    const consumoPorKm = document.getElementById("consumoPorKm").value.trim();
-    const dias = document.getElementById("dias").value.trim();
-    const costoHospedaje = document.getElementById("costoHospedaje").value.trim();
-    const costoComida = document.getElementById("costoComida").value.trim();
-    const precioCombustible = 850; 
+    const valoresNumericos = ["distancia", "consumoPorKm", "dias", "costoHospedaje", "costoComida"].map(id => parseFloat(document.getElementById(id).value.trim()));
     
-
-
+    if (!ciudad || valoresNumericos.some(isNaN)) return alert("Todos los campos son obligatorios y deben ser valores numéricos válidos");
     
-    const distanciaNum = parseFloat(distancia);
-    const consumoPorKmNum = parseFloat(consumoPorKm);
-    const diasNum = parseInt(dias);
-    const costoHospedajeNum = parseFloat(costoHospedaje);
-    const costoComidaNum = parseFloat(costoComida);
+    const [distancia, consumoPorKm, dias, costoHospedaje, costoComida] = valoresNumericos;
+    const costoCombustible = (distancia / consumoPorKm) * 850;
+    const costoTotal = (costoHospedaje * dias) + (costoComida * dias) + costoCombustible;
     
-
-    
-    const costoCombustible = (distanciaNum / consumoPorKmNum) * precioCombustible;
-    const costoTotal = (costoHospedajeNum * diasNum) + (costoComidaNum * diasNum) + costoCombustible;
-    
-    document.getElementById("resultado").innerHTML = `
+    actualizarElemento("resultado", `
         <div class="alert alert-success">
             <h4>Presupuesto para ${ciudad}</h4>
             <p>Costo total estimado: <strong>$${costoTotal.toFixed(2)} ARS</strong></p>
-        </div>`;
-    
+        </div>
+    `);
     guardarPresupuestoEnHistorial({ ciudad, costoTotal });
-}
+};
 
-function guardarPresupuestoEnHistorial(presupuesto) {
-    let historial = JSON.parse(localStorage.getItem("historialPresupuestos")) || [];
+const guardarPresupuestoEnHistorial = (presupuesto) => {
+    const historial = JSON.parse(localStorage.getItem("historialPresupuestos")) || [];
     historial.push(presupuesto);
     localStorage.setItem("historialPresupuestos", JSON.stringify(historial));
     mostrarHistorial(historial);
-}
+};
 
-function cargarHistorialDesdeLocalStorage() {
-    const historial = JSON.parse(localStorage.getItem("historialPresupuestos")) || [];
-    mostrarHistorial(historial);
-}
+const cargarHistorialDesdeLocalStorage = () => mostrarHistorial(JSON.parse(localStorage.getItem("historialPresupuestos")) || []);
 
-function mostrarHistorial(historial) {
-    const historialContainer = document.getElementById("historialContainer");
-    const historialLista = document.getElementById("historialPresupuestos");
-    historialLista.innerHTML = "";
-    
-    if (historial.length > 0) {
-        historial.forEach(presupuesto => {
-            const li = document.createElement("li");
-            li.className = "list-group-item";
-            li.innerHTML = `<strong>${presupuesto.ciudad}</strong>: $${presupuesto.costoTotal.toFixed(2)} ARS`;
-            historialLista.appendChild(li);
-        });
-        historialContainer.style.display = "block";
-    } else {
-        historialContainer.style.display = "none";
-    }
-}
+const mostrarHistorial = (historial) => {
+    actualizarElemento("historialPresupuestos", historial.map(({ ciudad, costoTotal }) =>
+        `<li class="list-group-item"><strong>${ciudad}</strong>: $${costoTotal.toFixed(2)} ARS</li>`
+    ).join(""));
+    document.getElementById("historialContainer").style.display = historial.length ? "block" : "none";
+};
